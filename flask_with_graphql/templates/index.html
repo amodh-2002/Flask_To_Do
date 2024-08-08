@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="bg-white shadow-md rounded-lg p-8">
+    <h1 class="text-2xl font-bold mb-4">To-Do List</h1>
+    <ul class="space-y-4">
+      {% for todo in todos %}
+      <li class="flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="bg-blue-500 rounded-full w-5 h-5 mr-3"></div>
+          <span class="text-gray-800">{{ todo.title }}</span>
+        </div>
+        <div>
+          <a href="{{ url_for('update', id=todo.id) }}" class="text-blue-500 hover:text-blue-700 mr-4">Edit</a>
+          <a href="{{ url_for('delete', id=todo.id) }}" class="text-red-500 hover:text-red-700">Delete</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 inline-block">Create New To-Do</a>
+  </div>
+</body>
+</html>
