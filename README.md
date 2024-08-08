@@ -18,3 +18,4 @@ Make sure you have Python and Node.js installed on your machine.
    python app.py or flask run
    ```
 - If any error try to upgrade the packages which are showing error
+  pip install --upgrade Flask Werkzeug
